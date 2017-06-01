@@ -363,7 +363,7 @@ class BB extends PluginBase implements Listener {
                                             array_push($this->arenas,$args[0]);
                                             $this->currentLevel = $args[0];
                                             $this->mode = 1;
-                                            $player->sendMessage($this->prefix . "Registra los plot!");
+                                            $player->sendMessage($this->prefix . "Register a Plots!");
                                             $player->setGamemode(1);
                                             array_push($this->op, $player->getName());
                                             $player->teleport($this->getServer()->getLevelByName($args[0])->getSafeSpawn(),0,0);
@@ -423,14 +423,14 @@ class BB extends PluginBase implements Listener {
                                                             goto with;
                                                     }
                                                 }
-                                                $player->sendMessage($this->prefix."No hay Slots");
+                                                $player->sendMessage($this->prefix."No Slots");
                                                 goto sinslots;
                                                 with:
                                                 $slots->save();
-                                                $player->sendMessage($this->prefix . "Entraste a BuildBattle");
+                                                $player->sendMessage($this->prefix . "You have joined BuildBattle");
                                                 foreach($level->getPlayers() as $playersinarena)
                                                 {
-                                                $playersinarena->sendMessage($player->getNameTag() .TE::AQUA. " se unió al juego");
+                                                $playersinarena->sendMessage($player->getNameTag() .TE::AQUA. " joined the game");
                                                 }
                                                 $spawn = new Position($thespawn[0]+0.5,$thespawn[1],$thespawn[2]+0.5,$level);
 						$level->loadChunk($spawn->getFloorX(), $spawn->getFloorZ());
@@ -445,7 +445,7 @@ class BB extends PluginBase implements Listener {
 					}
 					else
 					{
-						$player->sendMessage($this->prefix . "no puedes entrar");
+						$player->sendMessage($this->prefix . "You cant get in");
 					}
 				}
 			}
@@ -462,10 +462,10 @@ class BB extends PluginBase implements Listener {
 		{
 			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
 			$config->set($this->currentLevel . "Spawn" . $this->mode, array($block->getX(),$block->getY()+1,$block->getZ()));
-			$player->sendMessage($this->prefix . "Spawn Lobby Registrado!");
+			$player->sendMessage($this->prefix . "Spawn Lobby Registered!");
 			$config->set("arenas",$this->arenas);
                         $config->set($this->currentLevel . "inicio", 0);
-			$player->sendMessage($this->prefix . "Toca un cartel para registrar Arena!");
+			$player->sendMessage($this->prefix . "Tap a sign to register arena!");
 			$spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
 			$this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), $spawn->getFloorZ());
 			$player->teleport($spawn,0,0);
@@ -789,14 +789,14 @@ class GameSender extends PluginTask {
 									{
 										foreach($playersArena as $pl)
 										{
-											$pl->sendMessage($this->prefix .TE::YELLOW. $minutes . " " .TE::GREEN."minutes reaming");
+											$pl->sendMessage($this->prefix .TE::YELLOW. $minutes . " " .TE::GREEN."minutes remaining");
 										}
 									}
 									elseif($time2 == 30 || $time2 == 15 || $time2 == 10 || $time2 ==5 || $time2 ==4 || $time2 ==3 || $time2 ==2 || $time2 ==1)
 									{
 										foreach($playersArena as $pl)
 										{
-											$pl->sendMessage($this->prefix .TE::YELLOW. $time2 . " " .TE::GREEN. "segundes reaming");
+											$pl->sendMessage($this->prefix .TE::YELLOW. $time2 . " " .TE::GREEN. "seconds remaining");
                                                                                         $levelArena->addSound(new PopSound($pl));
 										}
 									}
@@ -807,7 +807,7 @@ class GameSender extends PluginTask {
                                                                     {
                                                                             foreach($playersArena as $pl)
                                                                             {
-                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "5" .TE::GREEN. " secunds");
+                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "5" .TE::GREEN. " seconds");
                                                                                     $levelArena->addSound(new PopSound($pl));
                                                                             }
                                                                     }
@@ -815,7 +815,7 @@ class GameSender extends PluginTask {
                                                                     {
                                                                             foreach($playersArena as $pl)
                                                                             {
-                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "4" .TE::GREEN. " secunds");
+                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "4" .TE::GREEN. " seconds");
                                                                                     $levelArena->addSound(new PopSound($pl));
                                                                             }
                                                                     }
@@ -823,7 +823,7 @@ class GameSender extends PluginTask {
                                                                     {
                                                                             foreach($playersArena as $pl)
                                                                             {
-                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "3" .TE::GREEN. " secunds");
+                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "3" .TE::GREEN. " seconds");
                                                                                     $levelArena->addSound(new PopSound($pl));
                                                                             }
                                                                     }
@@ -831,7 +831,7 @@ class GameSender extends PluginTask {
                                                                     {
                                                                             foreach($playersArena as $pl)
                                                                             {
-                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "2" .TE::GREEN. " secunds");
+                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "2" .TE::GREEN. " seconds");
                                                                                     $levelArena->addSound(new PopSound($pl));
                                                                             }
                                                                     }
@@ -839,7 +839,7 @@ class GameSender extends PluginTask {
                                                                     {
                                                                             foreach($playersArena as $pl)
                                                                             {
-                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "1" .TE::GREEN. " secunds");
+                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "1" .TE::GREEN. " seconds");
                                                                                     $levelArena->addSound(new PopSound($pl));
                                                                             }
                                                                     }
@@ -847,7 +847,7 @@ class GameSender extends PluginTask {
                                                                     {
                                                                             foreach($playersArena as $pl)
                                                                             {
-                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "0" .TE::GREEN. " secunds");
+                                                                                    $pl->sendMessage($this->prefix .TE::GREEN. "End in " .TE::YELLOW. "0" .TE::GREEN. " seconds");
                                                                                     $levelArena->addSound(new PopSound($pl));
                                                                             }
                                                                     }
@@ -1404,7 +1404,7 @@ class GameSender extends PluginTask {
                                                                             {
                                                                             $spawn = new Position($thesp[0]-$ra,$thesp[1]+21,$thesp[2]+0.5,$levelArena);
                                                                             }
-                                                                            $pl->sendMessage($this->prefix .TE::GREEN. "Tu Puntaje: ".TE::YELLOW.$tupos."°: ".TE::GREEN.$puntaje);
+                                                                            $pl->sendMessage($this->prefix .TE::GREEN. "Your Score: ".TE::YELLOW.$tupos."°: ".TE::GREEN.$puntaje);
                                                                             $pl->teleport($spawn,0,0);
                                                                         }
                                                                     }
@@ -1440,7 +1440,7 @@ class GameSender extends PluginTask {
 						{
                                                     foreach($playersArena as $pl)
                                                     {
-                                                            $pl->sendTip(TE::YELLOW . "NeedPlayers" .TE::RESET);
+                                                            $pl->sendTip(TE::YELLOW . "Need more players" .TE::RESET);
                                                     }
                                                     $config->set($arena . "PlayTime", 470);
                                                     $config->set($arena . "StartTime", 30);
